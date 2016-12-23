@@ -1,0 +1,16 @@
+{
+    "name": "thioz/acl",
+    "authors": [
+        {
+            "name": "Rob Theeuwes",
+            "email": "dev@sourcerer.nl"
+        }
+    ],
+    "autoload": {
+      
+        "psr-4": {
+            "Gracious\\Acl\\": "src/Gracious/Acl"
+        }
+    },		
+    "require": {}
+}
