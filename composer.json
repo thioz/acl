@@ -12,5 +12,10 @@
             "Gracious\\Acl\\": "src/Gracious/Acl"
         }
     },		
+    "extra": {
+        "branch-alias": {
+            "master": "1.0"
+        }
+    },		
     "require": {}
 }
