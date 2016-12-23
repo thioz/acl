@@ -24,19 +24,11 @@ class AclServiceProvider extends ServiceProvider {
 			return new \Gracious\Acl\AclManager();
 		});
 		
-		$this->app->bind('acl.store.json', function($app){
-			return new \Gracious\Acl\Store\JsonStore($app['acl.manager']);
-		});
-		
-		$this->registerPermissionFilters();
+ 
 		
 		
 		
 	}
-
-	function registerPermissionFilters() {
-		$this->app->bind('acl.permission.owner', \Gracious\Acl\PermissionFilter\Owner::class);
-		$this->app->bind('acl.permission.account', \Gracious\Acl\PermissionFilter\PartOfAccount::class);
-	}
+ 
 
 }
