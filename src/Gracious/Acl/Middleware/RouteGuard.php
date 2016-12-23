@@ -1,5 +1,5 @@
 <?php
-namespace Gracious\Acl;\Middleware;
+namespace Gracious\Acl\Middleware;
 
 use Closure;
 

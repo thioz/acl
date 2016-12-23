@@ -1,6 +1,6 @@
 <?php
 
-namespace Gracious\Acl;\Store;
+namespace Gracious\Acl\Store;
 
 use App\Acl\Store;
 

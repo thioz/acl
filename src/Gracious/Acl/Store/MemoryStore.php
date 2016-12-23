@@ -1,5 +1,5 @@
 <?php
-namespace Gracious\Acl;\Store;
+namespace Gracious\Acl\Store;
 
 class MemoryStore extends App\Acl\Store{
 	
