@@ -1,5 +1,7 @@
 <?php
-namespace Gracious\Acl;
+namespace Gracious\Acl\Eloquent;
+
+use Gracious\Acl\Resource;
 
 
 class ModelResource extends Resource{
