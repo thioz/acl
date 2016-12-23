@@ -146,7 +146,7 @@ class AclManager {
 			$filter = $this->buildFilter($rule['filter']);
 			$context = $this->getContext($request->resource, $request->contextId);
 
-			if ($filter->check($user, $context)) {
+			if ($filter->check($identity, $context)) {
 				$allow = $rule['flag'] == 'allow' ? true : false;
 				$filtered = true;
 			}
