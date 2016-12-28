@@ -23,8 +23,8 @@ class AclManager {
 
 	function addResource($resource) {
 
-		if (!($resource instanceof \Gracious\Acl\Resource)) {
-			$resource = new \Gracious\Acl\Resource($resource);
+		if (!($resource instanceof \Gracious\Acl\AclResource)) {
+			$resource = new \Gracious\Acl\AclResource($resource);
 		}
 
 		$this->resources[$resource->getName()] = $resource;
@@ -89,10 +89,18 @@ class AclManager {
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @return bool
+	 */
 	function hasResource($id) {
 		return isset($this->resources[$id]);
 	}
 
+	/**
+	 * @param $name
+	 * @return PermissionFilter
+	 */
 	function buildFilter($name) {
 		if (!is_string($name)) {
 			return $name;
@@ -100,6 +108,11 @@ class AclManager {
 		return new $name();
 	}
 
+	/**
+	 * @param $resourceId
+	 * @param $cid
+	 * @return mixed
+	 */
 	function getContext($resourceId, $cid) {
 		if (!isset($this->resources[$resourceId])) {
 			return false;
@@ -109,6 +122,10 @@ class AclManager {
 		return $resource->getContext($cid);
 	}
 
+	/**
+	 * @param $item
+	 * @return int|string
+	 */
 	function getResourceId($item) {
 		foreach ($this->resources as $resId => $resource) {
 			if ($resource->is($item)) {
@@ -117,6 +134,12 @@ class AclManager {
 		}
 	}
 
+	/**
+	 * @param $resourceId
+	 * @param $permissionId
+	 * @param $contextId
+	 * @return PermissionRequest
+	 */
 	function makePermissionRequest($resourceId, $permissionId, $contextId) {
 		return new PermissionRequest($resourceId, $permissionId, $contextId);
 	}
@@ -127,6 +150,13 @@ class AclManager {
 		}
 	}
 
+	/**
+	 * @param AclIdentityInterface $identity
+	 * @param $resource
+	 * @param bool $permissionId
+	 * @param bool $contextId
+	 * @return bool
+	 */
 	function isAllowed(AclIdentityInterface $identity, $resource, $permissionId = false, $contextId = false) {
 
 		$roleId = $identity->getRoleId();

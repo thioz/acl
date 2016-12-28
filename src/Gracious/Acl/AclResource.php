@@ -2,10 +2,12 @@
 
 namespace Gracious\Acl;
 
-use App\User;
 
-class Resource {
+class AclResource {
 
+	/**
+	 * @var string
+	 */
 	protected $name;
 
 	public function __construct($name) {
@@ -16,15 +18,19 @@ class Resource {
 		return $this->name;
 	}
 
+	/**
+	 * @param $id integer
+	 * @return bool
+	 */
 	function getContext($id) {
 		return false;
 	}
 
+	/**
+	 * @param $res
+	 * @return bool
+	 */
 	function getContextId($res) {
-		return false;
-	}
-
-	function getPermission($item) {
 		return false;
 	}
 

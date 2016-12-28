@@ -1,10 +1,10 @@
 <?php
 namespace Gracious\Acl\Eloquent;
 
-use Gracious\Acl\Resource;
+use Gracious\Acl\AclResource;
 
 
-class ModelResource extends Resource{
+class ModelResource extends AclResource{
 	
 	protected $name;
 	protected $model;
